@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.example</groupId>
+  <artifactId>web</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  
+  <name>web Maven Webapp</name>
+  <url>http://maven.apache.org</url>  
+
+  <repositories>
+    <repository>
+      <id>rubygems-releases</id>
+      <url>http://rubygems-proxy.torquebox.org/releases</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.example</groupId>
+      <artifactId>app</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>rubygems</groupId>
+      <artifactId>jruby-openssl-maven</artifactId>
+      <version>0.7.4</version>
+      <type>gem</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>web</finalName>
+    <resources>
+      <resource>
+	<directory>target/rubygems</directory>
+	<includes>
+	  <include>gems/**</include>
+	  <include>specifications/**</include>
+	</includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>7.5.1.v20110908</version>
+      </plugin>
+      <plugin>
+	<groupId>de.saumya.mojo</groupId>
+	<artifactId>gem-maven-plugin</artifactId>
+	<version>0.28.4</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>initialize</goal>
+	    </goals>
+            <configuration>
+              <includeOpenSSL>false</includeOpenSSL>
+            </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

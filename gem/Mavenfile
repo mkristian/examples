@@ -1,0 +1,1 @@
+jar('org.jruby:jruby-complete', '1.6.4').scope :provided
