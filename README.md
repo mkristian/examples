@@ -1,7 +1,7 @@
-`mvn install`
+# list of example #
 
-`cd simple-rails`
+each example likes in its own branch :)
 
-`mvn rails3:server`
-
-the file _simple-rails/config/initializers/test.rb_ uses either a 3rd party dependency (*org.slf4j:simple-logger*) or the dependency from the reactor *com.example:hello\_world*
+* **maven\_multi\_module\_with\_rails**: simple rails application using a jar from another maven module
+* **webapp\_with\_nokogiri\_using\_maven**: a gem, a jar and a webapp using both. setting up the webapp so there is only one version of each jar present.
+* **webapp\_with\_nokogiri\_without\_maven**: a gem, a jar and a webapp using both. showing the setup leads to two versions of a jar (xercesImpl).
