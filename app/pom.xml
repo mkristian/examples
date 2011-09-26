@@ -15,6 +15,10 @@
       <id>rubygems-releases</id>
       <url>http://rubygems-proxy.torquebox.org/releases</url>
     </repository>
+    <repository>
+      <id>jline</id>
+      <url>http://mojo.saumya.de</url>
+    </repository>
   </repositories>
 	
   <properties>
